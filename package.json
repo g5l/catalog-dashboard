@@ -1,0 +1,37 @@
+{
+  "name": "catalog-dashboard",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --watch",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "yarn run build && yarn run upload",
+    "upload": "s3-deploy './dist/**' --cwd './dist/' --region sa-east-1 --bucket catalog-dashboard-test-production"
+  },
+  "dependencies": {
+    "awesome-mask": "^1.1.1",
+    "axios": "^0.19.2",
+    "chartist": "0.11.4",
+    "core-js": "3.6.4",
+    "google-maps": "4.2.3",
+    "vue": "2.6.11",
+    "vue-clickaway": "2.2.2",
+    "vue-material": "1.0.0-beta-11",
+    "vue-router": "3.1.6",
+    "vuelidate": "^0.7.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "4.2.3",
+    "@vue/cli-plugin-eslint": "4.2.3",
+    "@vue/cli-plugin-router": "4.2.3",
+    "@vue/cli-service": "4.2.3",
+    "babel-eslint": "10.1.0",
+    "es6-promise": "4.2.8",
+    "eslint": "6.8.0",
+    "eslint-plugin-vue": "^7.0.0-alpha.10",
+    "sass": "1.26.2",
+    "sass-loader": "8.0.2",
+    "vue-template-compiler": "2.6.11"
+  }
+}
