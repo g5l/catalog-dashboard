@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./App";
+import store from './store'
 
 // router setup
 import routes from "./routes/routes";
@@ -35,15 +36,18 @@ router.beforeEach(async (to, from, next) => {
   const publicPages = ['/login']
   const authRequired = !publicPages.includes(to.path)
   const hasToken = await me()
-  if (authRequired && hasToken.data.auth === false) {
-    return next({ path: '/login', query: { returnUrl: to.path } })
+
+  if (authRequired && !hasToken.data.auth) {
+    return next({ path: '/login' })
   }
+
   next()
 })
 
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
+  store,
   data: function() {
 return {
     Chartist: Chartist

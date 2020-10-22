@@ -43,7 +43,9 @@
     data () {
       return {
         sending: false,
+        showSnackbar: false,
         catalogUser: {
+          companyId: this.$store.state.company.company.id,
           name: null,
           lastname: null,
           email: null,

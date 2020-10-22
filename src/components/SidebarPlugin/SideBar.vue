@@ -8,7 +8,10 @@
     <div class="logo">
       <a href="#" class="simple-text logo-mini">
         <div class="logo-img">
-          <img :src="imgLogo" alt="" />
+          <img
+            :src="imgLogo"
+            alt="Logo"
+          >
         </div>
       </a>
 
@@ -21,7 +24,7 @@
       </a>
     </div>
     <div class="sidebar-wrapper">
-      <slot name="content"></slot>
+      <slot name="content" />
       <md-list class="nav">
         <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
         <slot>
@@ -30,8 +33,7 @@
             :key="link.name + index"
             :to="link.path"
             :link="link"
-          >
-          </sidebar-link>
+          />
         </slot>
       </md-list>
     </div>
@@ -43,6 +45,11 @@ import SidebarLink from "./SidebarLink.vue";
 export default {
   components: {
     SidebarLink
+  },
+  provide() {
+    return {
+      autoClose: this.autoClose
+    };
   },
   props: {
     title: {
@@ -74,18 +81,13 @@ export default {
       default: true
     }
   },
-  provide() {
-    return {
-      autoClose: this.autoClose
-    };
-  },
   computed: {
     sidebarStyle() {
       return {
         backgroundImage: `url(${this.sidebarBackgroundImage})`
       };
     }
-  }
+  },
 };
 </script>
 <style>

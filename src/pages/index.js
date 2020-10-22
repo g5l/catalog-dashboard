@@ -1,4 +1,5 @@
 import Login from "./Login.vue";
+import SelectCompany from "./SelectCompany.vue";
 
 // CatalogUser
 import CatalogUsers from "./CatalogUser/CatalogUsers.vue";
@@ -23,5 +24,6 @@ export {
   CreateProduct,
   EditProduct,
   Orders,
-  Order
+  Order,
+  SelectCompany,
  };

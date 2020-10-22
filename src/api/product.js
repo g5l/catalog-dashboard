@@ -8,12 +8,13 @@ export function fetchProduct (id) {
   return HTTP.get(`/product/${id}`)
 }
 
-export function createProduct ({ name, image, reference, price }) {
+export function createProduct ({ name, image, reference, price, companyId }) {
   const formData = new FormData()
   formData.append('name', name)
   formData.append('image', image)
   formData.append('reference', reference)
   formData.append('price', price)
+  formData.append('companyId', companyId)
 
   return HTTP.post('/product', formData)
 }

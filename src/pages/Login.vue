@@ -4,6 +4,7 @@
       <div class="title">
         <!-- <img src="../assets/img/logo.png"> -->
         <div class="md-title">
+          {{ company.name }}
           Catalog Login
         </div>
       </div>
@@ -72,7 +73,9 @@
 import { LOGIN_TOKEN } from '@/constants'
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-import { login, logout } from '../api/user'
+import { login, logout } from '@/api/user'
+
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Login',
@@ -87,15 +90,16 @@ export default {
     return {
       loading: false,
       login: { email: null, password: null },
-      returnUrl: '/Orders',
       error: '',
       showSnackbar: false
     }
   },
-  created () {
-    // this.returnUrl = this.$route.query.returnUrl || '/'
+  computed: {
+    ...mapState(['company'])
   },
   methods: {
+    ...mapMutations('company', ['addCompany']),
+    ...mapMutations('user', ['addUser']),
     getValidationClass (fieldName) {
       const field = this.$v.login[fieldName]
       if (field) { return { 'md-invalid': field.$invalid && field.$dirty } }
@@ -106,14 +110,23 @@ export default {
     },
     auth () {
       const { email, password } = this.login
+
       if (!(email && password)) { return }
+
       this.loading = true
 
       login(email, password).then(
         ({ data }) => {
-          const { token, auth } = data
-          window.localStorage.setItem(LOGIN_TOKEN, token)
-          this.$router.go('/Orders');
+          const { token, auth, user } = data
+          const { Company:company } = user
+          const { email, id, name, phone } = user
+
+          this.addUser({ email, id, name, phone })
+          this.addCompany(company)
+
+          this.$router.push({ path:'/Orders' });
+
+          // window.localStorage.setItem(LOGIN_TOKEN, token)
         },
         (error) => {
           this.error = error
@@ -124,7 +137,7 @@ export default {
           }
         }
       )
-    }
+    },
   }
 }
 </script>

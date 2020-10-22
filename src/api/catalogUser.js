@@ -8,13 +8,16 @@ export function fetchCatalogUser (id) {
   return HTTP.get(`/catalogUser/${id}`)
 }
 
-export function createCatalogUser ({ image, name, lastname, email, password }) {
+export function createCatalogUser ({ image, name, lastname, email, password, companyId }) {
   const formData = new FormData()
   formData.append('name', name)
   formData.append('lastname', lastname)
   formData.append('email', email)
+  formData.append('companyId', companyId)
   formData.append('password', password)
   formData.append('image', image.target.files[0])
+
+  console.log({ companyId })
 
   return HTTP.post('/catalogUser', formData)
 }

@@ -34,11 +34,13 @@ export default {
   data () {
     return {
       sending: false,
+      showSnackbar: false,
       product: {
         reference: null,
         price: null,
         name: null,
         image: null,
+        companyId: this.$store.state.company.company.id,
       }
     }
   },

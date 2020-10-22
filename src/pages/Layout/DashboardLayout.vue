@@ -8,6 +8,8 @@
     <side-bar
       :sidebar-item-color="sidebarBackground"
       :sidebar-background-image="sidebarBackgroundImage"
+      :img-logo="logo"
+      :title="name"
     >
       <mobile-menu slot="content" />
       <!-- <sidebar-link to="/dashboard">
@@ -60,6 +62,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
@@ -77,6 +81,22 @@ export default {
       sidebarBackground: "green",
       sidebarBackgroundImage: require("@/assets/img/sidebar-2.jpg")
     };
-  }
+  },
+  computed: {
+    ...mapGetters('company', ['isCompanyEmpty', 'logo', 'name']),
+    ...mapGetters('user', ['isUserEmpty']),
+  },
+  mounted() {
+    if (this.isCompanyEmpty) {
+      this.fetchCompany()
+    }
+    if (this.isUserEmpty) {
+      this.fetchUser()
+    }
+  },
+  methods: {
+    ...mapActions('company', ['fetchCompany']),
+    ...mapActions('user', ['fetchUser'])
+  },
 };
 </script>

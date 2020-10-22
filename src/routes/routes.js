@@ -8,6 +8,7 @@ import Maps from "@/pages/Maps.vue";
 import Notifications from "@/pages/Notifications.vue";
 import {
   Login,
+  SelectCompany,
   CatalogUsers,
   CreateCatalogUser,
   EditCatalogUser,
@@ -21,6 +22,7 @@ import {
 const routes = [
   {
     path: "/",
+    name: "Home",
     component: DashboardLayout,
     redirect: "/Orders",
     children: [
@@ -103,6 +105,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/SelectCompany",
+    name: "SelectCompany",
+    component: SelectCompany
   },
 ];
 

@@ -238,7 +238,9 @@
               @include shadow-big();
 
                 img{
-                  width: 55%;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
                   vertical-align: -webkit-baseline-middle;
                 }
             }
