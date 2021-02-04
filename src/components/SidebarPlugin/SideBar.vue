@@ -6,22 +6,15 @@
     :style="sidebarStyle"
   >
     <div class="logo">
-      <a href="#" class="simple-text logo-mini">
-        <div class="logo-img">
-          <img
-            :src="imgLogo"
-            alt="Logo"
-          >
-        </div>
-      </a>
-
-      <a
-        href="https://www.creative-tim.com/product/vue-material-dashboard"
-        target="_blank"
-        class="simple-text logo-normal"
-      >
+      <div class="logo__avatar simple-text logo-mini logo-img">
+        <img
+          :src="imgLogo"
+          alt="Logo"
+        >
+      </div>
+      <div class="logo__title simple-text logo-normal">
         {{ title }}
-      </a>
+      </div>
     </div>
     <div class="sidebar-wrapper">
       <slot name="content" />
@@ -96,4 +89,25 @@ export default {
     display: none;
   }
 }
+</style>
+<style lang="scss" scoped>
+  .sidebar {
+    .logo {
+      .logo__avatar {
+        float: inherit;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+          border-radius: 20px;
+         
+        }
+      }
+      .logo__title {
+        text-align: center;
+      }
+      /* display: flex; */
+    }
+  }
 </style>

@@ -14,6 +14,7 @@ import SimpleTable from "./Tables/SimpleTable.vue";
 
 // Forms
 import FormCatalogUser from "./Form/FormCatalogUser.vue";
+import FormCompany from "./Form/FormCompany.vue";
 import FormProduct from "./Form/FormProduct.vue";
 
 export {
@@ -26,5 +27,6 @@ export {
   OrderedTable,
   SimpleTable,
   FormCatalogUser,
+  FormCompany,
   FormProduct
 };

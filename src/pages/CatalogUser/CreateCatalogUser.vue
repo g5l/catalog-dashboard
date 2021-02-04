@@ -12,7 +12,7 @@
           @send-form="createUser"
         />
       </div>
-      <div class="md-layout-item md-medium-size-100 md-size-33">
+      <div class="md-layout-item md-medium-size-100 md-size-44">
         <user-card
           v-if="catalogUser.name"
           :image="catalogUser.image"

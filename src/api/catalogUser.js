@@ -17,8 +17,6 @@ export function createCatalogUser ({ image, name, lastname, email, password, com
   formData.append('password', password)
   formData.append('image', image.target.files[0])
 
-  console.log({ companyId })
-
   return HTTP.post('/catalogUser', formData)
 }
 

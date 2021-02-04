@@ -15,6 +15,12 @@ import EditProduct from "./Product/EditProduct.vue";
 import Orders from "./Order/Orders.vue";
 import Order from "./Order/Order.vue";
 
+// Profile
+import Profile from "./Profile/Profile.vue";
+
+// Company
+import EditCompany from "./Company/EditCompany.vue";
+
 export {
   Login,
   CatalogUsers,
@@ -26,4 +32,6 @@ export {
   Orders,
   Order,
   SelectCompany,
+  Profile,
+  EditCompany
  };

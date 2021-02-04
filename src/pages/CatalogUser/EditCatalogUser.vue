@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { FormCatalogUser, UserCard  } from '@/components'
+import { FormCatalogUser } from '@/components'
 import { editCatalogUser, fetchCatalogUser } from '@/api/catalogUser'
 
 export default {

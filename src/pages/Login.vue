@@ -124,9 +124,7 @@ export default {
           this.addUser({ email, id, name, phone })
           this.addCompany(company)
 
-          this.$router.push({ path:'/Orders' });
-
-          // window.localStorage.setItem(LOGIN_TOKEN, token)
+          window.localStorage.setItem(LOGIN_TOKEN, token)
         },
         (error) => {
           this.error = error
@@ -137,6 +135,13 @@ export default {
           }
         }
       )
+      
+      setTimeout(() => {
+        if (isLogged) {
+          this.$router.go('/Orders')
+        }
+      }, 2000)
+
     },
   }
 }

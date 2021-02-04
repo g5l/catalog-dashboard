@@ -37,6 +37,14 @@
         <md-icon>notifications</md-icon>
         <p>Notifications</p>
       </sidebar-link> -->
+      <sidebar-link to="/Profile">
+        <md-icon>people</md-icon>
+        <p>Perfil</p>
+      </sidebar-link>
+      <sidebar-link to="/EditCompany">
+        <md-icon>business</md-icon>
+        <p>Empresa</p>
+      </sidebar-link>
       <sidebar-link to="/CatalogUsers">
         <md-icon>people</md-icon>
         <p>Usuários do Catálogo</p>

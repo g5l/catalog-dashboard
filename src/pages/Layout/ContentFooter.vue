@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container">
       <nav>
-        <ul>
+        <!-- <ul>
           <li>
             <a>
               Planos
@@ -13,7 +13,7 @@
               Contato
             </a>
           </li>
-        </ul>
+        </ul> -->
       </nav>
       <div class="copyright text-center">
         &copy; {{ new Date().getFullYear() }} Desenvoldivo por

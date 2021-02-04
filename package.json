@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "yarn run build && yarn run upload",
-    "upload": "s3-deploy './dist/**' --cwd './dist/' --region sa-east-1 --bucket catalog-dashboard-test-production"
+    "upload": "s3-deploy './dist/**' --cwd './dist/' --region sa-east-1 --bucket orderfy-adm"
   },
   "dependencies": {
     "awesome-mask": "^1.1.1",
@@ -17,6 +17,7 @@
     "google-maps": "4.2.3",
     "vue": "2.6.11",
     "vue-clickaway": "2.2.2",
+    "vue-color": "^2.8.1",
     "vue-material": "1.0.0-beta-11",
     "vue-router": "3.1.6",
     "vuelidate": "^0.7.5",

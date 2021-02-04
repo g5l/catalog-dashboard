@@ -17,6 +17,8 @@ import {
   EditProduct,
   Orders,
   Order,
+  Profile,
+  EditCompany,
 } from "@/pages";
 
 const routes = [
@@ -98,6 +100,16 @@ const routes = [
         path: "Order/:id",
         name: "Pedido",
         component: Order
+      },
+      {
+        path: "Profile",
+        name: "Perfil",
+        component: Profile
+      },
+      {
+        path: "EditCompany",
+        name: "Editar Empresa",
+        component: EditCompany
       },
     ]
   },

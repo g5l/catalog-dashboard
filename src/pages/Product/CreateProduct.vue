@@ -1,17 +1,15 @@
 <template>
   <div class="content">
-    <div class="md-layout">
-      <div class="md-layout-item md-medium-size-100 md-size-66">
-        <form-product
-          data-background-color="green"
-          :product="product"
-          title="Cadastrar Produto"
-          description="Cadastre seus produtos"
-          button-title="Cadastrar"
-          :loading="sending"
-          @send-form="createProduct"
-        />
-      </div>
+    <div class="md-layout-item md-medium-size-100 md-size-100">
+      <form-product
+        data-background-color="green"
+        :product="product"
+        title="Cadastrar Produto"
+        description="Cadastre seus produtos"
+        button-title="Cadastrar"
+        :loading="sending"
+        @send-form="createProduct"
+      />
     </div>
     <md-snackbar
       md-position="left"
@@ -60,5 +58,3 @@ export default {
   }
 }
 </script>
-<style>
-</style>
