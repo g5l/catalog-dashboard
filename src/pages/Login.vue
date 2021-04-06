@@ -5,7 +5,7 @@
         <!-- <img src="../assets/img/logo.png"> -->
         <div class="md-title">
           {{ company.name }}
-          Catalog Login
+          Orderfy
         </div>
       </div>
 
@@ -73,7 +73,7 @@
 import { LOGIN_TOKEN } from '@/constants'
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-import { login, logout } from '@/api/user'
+import { login } from '@/api/user'
 
 import { mapState, mapMutations } from 'vuex'
 
@@ -125,6 +125,8 @@ export default {
           this.addCompany(company)
 
           window.localStorage.setItem(LOGIN_TOKEN, token)
+          window.location.href = "/"
+          return;
         },
         (error) => {
           this.error = error
@@ -135,13 +137,6 @@ export default {
           }
         }
       )
-      
-      setTimeout(() => {
-        if (isLogged) {
-          this.$router.go('/Orders')
-        }
-      }, 2000)
-
     },
   }
 }

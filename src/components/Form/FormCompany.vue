@@ -33,23 +33,33 @@
           </div>
 
           <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-field> 
+            <md-field :class="getValidationClass('profile.logo')">
               <label for="logo">Logo</label>
               <md-file
                 id="logo"
-                name="logo"
+                name="profile.logo"
                 accept="image/*"
-                @change="onFileUpload($event)"
+                @change="onLogoUpload($event)"
               />
             </md-field>
           </div>
 
           <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-field> 
-              <label for="logo">Logo</label>
+            <md-field>
               <sketch-picker
                 :value="colors"
-                @input="updateValue"
+              />
+            </md-field>
+          </div>
+
+          <div class="md-layout-item md-small-size-100 md-size-50">
+            <md-field :class="getValidationClass('profile.background')">
+              <label for="logo">Background</label>
+              <md-file
+                id="background"
+                name="profile.background"
+                accept="image/*"
+                @change="onBackgroundUpload($event)"
               />
             </md-field>
           </div>
@@ -91,18 +101,20 @@ export default {
       name: {
         required,
       },
-      logo: {
-        required,
-      },
-      primaryColor: {
-        required,
-      },
-      secondColor: {
-        required,
-      },
-      background: {
-        required,
-      }
+      // profile: {
+      //   logo: {
+      //     required,
+      //   },
+      //   primaryColor: {
+      //     required,
+      //   },
+      //   secondColor: {
+      //     required,
+      //   },
+      //   background: {
+      //     required,
+      //   }
+      // }
     }
   },
   props: {
@@ -175,8 +187,11 @@ export default {
     sendForm () {
       this.$emit('send-form')
     },
-    onFileUpload (event) {
+    onLogoUpload (event) {
       this.form.logo = event
+    },
+    onBackgroundUpload(event) {
+      this.form.profile.background = event
     }
   }
 };

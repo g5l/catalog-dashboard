@@ -7,7 +7,3 @@ export function login (email, password) {
 export function me () {
   return HTTP.get('/me')
 }
-
-export function logout (email, password) {
-  return HTTP.post('/login', { email, password })
-}

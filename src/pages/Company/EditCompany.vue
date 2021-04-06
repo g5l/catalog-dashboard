@@ -5,7 +5,7 @@
         <form-company
           data-background-color="orange"
           :company="company"
-          title="Cadastrar Empresa"
+          title="Editar Empresa"
           button-class="md-warning"
           button-title="Editar"
           :loading="sending"
@@ -25,8 +25,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { FormCompany } from "@/components";
-import { fetchMyCompany } from "@/api/company";
+import { editCompany } from '@/api/company'
 
 export default {
   name: "EditCatalogUser",
@@ -38,37 +39,37 @@ export default {
       company: {
         id: 0,
         name: null,
-        logo: null,
-        primaryColor: null,
-        secondColor: null,
-        background: null,
+        profile: {
+          logo: null,
+          primaryColor: null,
+          secondColor: null,
+          background: null,
+        }
       },
       sending: false,
       showSnackbar: false,
     };
   },
+  computed: {
+    ...mapGetters('company', ['profile', 'companyData'])
+  },
   mounted() {
     window.scrollTo(0, 0);
-
-    fetchMyCompany()
-      .then(({ data }) => {
-        console.log({ data });
-        this.company = data;
-      })
-      .catch((e) => {
-        alert(e);
-      });
+    setTimeout(() => {
+      this.company = this.companyData
+      this.company.profile = this.profile
+    }, 1000)
   },
   methods: {
     sendRequest() {
       this.sending = true;
-      editCatalogUser(this.catalogUser).then((data) => {
+      editCompany(this.company).then((data) => {
         this.company = {};
         this.showSnackbar = true;
         this.sending = false;
 
         setTimeout(() => {
-          this.$router.push({ path: "/CatalogUsers" });
+          this.$router.push({ path: "/EditCompany" });
         }, 2000);
       });
     },

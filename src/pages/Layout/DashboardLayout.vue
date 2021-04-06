@@ -37,10 +37,11 @@
         <md-icon>notifications</md-icon>
         <p>Notifications</p>
       </sidebar-link> -->
-      <sidebar-link to="/Profile">
+      <!-- <sidebar-link to="/Profile">
         <md-icon>people</md-icon>
         <p>Perfil</p>
       </sidebar-link>
+      -->
       <sidebar-link to="/EditCompany">
         <md-icon>business</md-icon>
         <p>Empresa</p>
@@ -51,7 +52,7 @@
       </sidebar-link>
       <sidebar-link to="/Products">
         <md-icon>add_business</md-icon>
-        <p>Produto</p>
+        <p>Produtos</p>
       </sidebar-link>
       <sidebar-link to="/Orders">
         <md-icon>list_alt</md-icon>

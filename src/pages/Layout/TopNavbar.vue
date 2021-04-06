@@ -66,9 +66,12 @@
               </a>
             </li> -->
 
-            <md-list-item href="#/user">
+            <!-- <md-list-item href="#/user">
               <i class="material-icons">person</i>
               <p class="hidden-lg hidden-md">Profile</p>
+            </md-list-item> -->
+            <md-list-item href="#/user">
+              <i class="material-icons" title="Sair" @click="logout()">logout</i>
             </md-list-item>
           </md-list>
         </div>
@@ -78,10 +81,16 @@
 </template>
 
 <script>
+import { LOGIN_TOKEN } from '@/constants'
 export default {
   methods: {
     toggleSidebar() {
       this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+    },
+    logout() {
+      window.localStorage.removeItem(LOGIN_TOKEN);
+      window.location.href = "/"
+      return;
     }
   }
 };
